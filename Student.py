@@ -8,4 +8,4 @@ class Students:
         self.marks=marks
         self.total=total
     def __str__(self):
-        return self.name+"_"+str(self.marks)+"_"+str(self.sem)+"_"+str(self.result)
+        return self.name+"_"+str(self.marks)+"_"+str(self.sem)+"_"+str(self.result)+"_"+str(self.total)
