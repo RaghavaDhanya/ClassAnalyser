@@ -5,6 +5,7 @@ import linecache
 import Student
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
+import numpy as np
 usn = "1mv14cs"
 list = []
 for i in range(1, 50):
@@ -47,10 +48,19 @@ arr={}
 for i in list:
     for j in i.marks.keys():
         if j not in arr:
-            arr[j]=0
+            arr[j]=[0,0]
         if i.marks[j][3] == 'P':
-            arr[j]+=1
-plt.bar(range(0,len(arr.values())),arr.values(),.9,color="blue",align='center')
+            arr[j][0]+=1
+        arr[j][1]+=1
+# names=["sub","nop"]
+# formats=["a50","i8"]
+# dtype=dict(names=names,formats=formats)
+# print(arr.items())
+# nparr=np.array([(x,y[0]) for (x,y) in arr.items()],dtype=dtype)
+# print(repr(nparr))
+plt.bar(range(0,len(arr.values())),[k[0]/float(k[1])*100 for k in arr.values()],.9,color="blue",align='center')
 plt.xticks(range(0,len(arr.values())),[i[i.index("(")+1:-1] for i in arr.keys()],rotation='vertical')
-plt.subplots_adjust(bottom=0.15)
+plt.xlabel("Subjects taken")
+plt.ylabel("%age of pass")
+plt.subplots_adjust(bottom=0.2)
 plt.show()
