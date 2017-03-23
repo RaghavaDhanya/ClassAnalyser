@@ -1,5 +1,5 @@
 # ClassAnalyser
-Python script which scrapes and plots the results of a given class. 
+(deprecated) Python script which scrapes and plots the results of a given class. 
 ## Prerequisites
 * Beautifulsoup
 * Matplotlib
